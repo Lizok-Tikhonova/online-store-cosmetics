@@ -29,19 +29,23 @@ class ProductsControler{
     }
     
     async getAll(req,res){
-        const {typeId, brandId} = req.query
+        let {typeId, brandId, limit, page} = req.query  //limit, page - для пагинации
         let products
+        page = page || 1 
+        limit = limit || 9
+        let offset = page * limit - limit // отступ
+
         if(!typeId && !brandId){
-            products = await Products.findAll()
+            products = await Products.findAll({limit, offset})
         }
         if(!typeId && brandId){
-            products = await Products.findAll({where:{brandId}})
+            products = await Products.findAll({where:{brandId}, limit, offset})
         }
         if(typeId && !brandId){
-            products = await Products.findAll({where:{typeId}})
+            products = await Products.findAll({where:{typeId}, limit, offset})
         }
-        if(typeId && !brandId){
-            products = await Products.findAll({where:{typeId, brandId}})
+        if(typeId && brandId){
+            products = await Products.findAll({where:{typeId, brandId}, limit, offset})
         }
         return res.json(products)
     }
