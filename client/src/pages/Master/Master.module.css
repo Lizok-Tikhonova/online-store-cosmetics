@@ -1,0 +1,87 @@
+.master{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+}
+
+.infoMaser{
+    display: flex;
+    flex-direction: column;
+    gap: 140px;
+    align-items: center;
+}
+
+.infoMaser__title{
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    align-items: center;
+}
+
+.name{
+    font-size: 44px;
+    font-weight: normal;
+}
+
+.role{
+    font-size: 22px;
+    font-weight: normal;
+}
+
+.descMaster{
+    display: flex;
+    justify-content: center;
+    column-gap: 170px;
+    row-gap: 40px;
+    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
+}
+.desc{
+    font-size: 26px;
+    font-weight: normal;
+    max-width: 484px;
+    line-height: 150%;
+    text-align: justify;
+}
+
+.imgMaster{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+}
+.img{
+    border-radius: 4px;
+    padding-bottom: 5px;
+}
+
+.imgMaster__name{
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.imgMaster__role{
+    font-size: 14px;
+}
+
+.portfolio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+}
+
+.titleWork{
+    font-size: 44px;
+}
+
+.worksMaster{
+  column-count: 4;
+  column-gap: 0;
+}
+
+.work{
+    margin: 8px;
+    border-radius: 3px;
+}

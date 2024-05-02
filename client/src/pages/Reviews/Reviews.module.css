@@ -1,0 +1,28 @@
+.reviews{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    text-align: center;
+    gap: 120px;
+    padding: 0 50px 0 50px;
+    height: 1100px;
+}
+.wrapperReviews{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    gap: 70px;
+    overflow-y: scroll;
+}
+.wrapperReviews::-webkit-scrollbar {
+    width: 15px;
+}
+.wrapperReviews::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #CEA167;
+}
+.title{
+    font-size: 44px;
+    font-weight: 400;
+}
+

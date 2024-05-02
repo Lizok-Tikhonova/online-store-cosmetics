@@ -1,0 +1,12 @@
+.advantages{
+    padding: 100px 0;
+}
+
+.advantagesList{
+    display: flex;
+    column-gap: 20px;
+    row-gap: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+

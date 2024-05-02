@@ -1,0 +1,20 @@
+.itemList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid white;
+    width: 340px;
+    height: 170px;
+    text-align: center;
+    margin-top: 80px;
+    gap: 10px;
+}
+
+.title{
+    font-size: 32px;
+}
+
+.price{
+    font-size: 28px;
+    color: #DD9F50;
+}

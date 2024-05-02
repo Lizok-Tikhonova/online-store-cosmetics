@@ -1,0 +1,59 @@
+header{
+    display: flex;
+    flex-direction: column;
+    min-height: 890px;
+    justify-content: center;
+    padding: 180px 0 30px 0;
+    margin-top: -1px;
+
+    background-image: url(./fon.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;   
+}
+
+.wrapperHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 240px;
+
+    color:white;
+}
+
+.bunner{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap:25px;
+    align-items: center;
+}
+
+.title{
+    font-size: 68px;
+    font-weight: normal;
+}
+
+.paragraf{
+    font-size: 36px;
+    font-weight: normal;
+    line-height: 120%;
+}
+
+button{
+    margin-top: 20px;
+}
+
+.down{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+@media (max-width: 700px){
+    .title{
+        font-size: 45px;
+    }
+    .paragraf{
+        font-size: 20px;
+    }
+} 

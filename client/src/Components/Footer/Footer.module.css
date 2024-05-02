@@ -1,0 +1,56 @@
+
+footer{
+    background-color: #0F0E0E;
+    padding: 100px 0 40px 0;
+}
+
+.footerContent{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    flex-wrap: wrap;
+
+    row-gap: 50px;
+    column-gap: 75px;
+    padding: 0 15px;
+
+}
+
+
+.hr{
+    margin-bottom: 45px;
+    border-bottom: 0;
+}
+
+
+.logoSignUp{
+    display: flex;
+    flex-direction: column;
+}
+
+.logo{
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+}
+
+.logo span{
+    color: #CEA167;
+    font-size: 22px;
+}
+
+.title{
+    font-size: 20px;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.descList{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+

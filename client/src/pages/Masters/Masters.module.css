@@ -1,0 +1,28 @@
+.masters{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 34px;
+}
+
+.mastersList{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    row-gap: 128px;
+    column-gap: 152px;
+    margin-top: 70px;
+}
+
+.title{
+    font-size: 44px;
+    font-weight: normal;
+}
+
+.slogan{
+    font-size: 22px;
+}
+
+.slogan span{
+    color: #DD9F50;
+}
