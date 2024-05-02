@@ -23,7 +23,7 @@ class ProductsControler{
 
             return res.json(product)
         } catch(e){
-            return res.json(e.message)
+            return res.status(400).json(e.message)
         }
         
     }
@@ -36,22 +36,23 @@ class ProductsControler{
         let offset = page * limit - limit // отступ
 
         if(!typeId && !brandId){
-            products = await Products.findAll({limit, offset})
+            products = await Products.findAndCountAll({limit, offset})
         }
         if(!typeId && brandId){
-            products = await Products.findAll({where:{brandId}, limit, offset})
+            products = await Products.findAndCountAll({where:{brandId}, limit, offset})
         }
         if(typeId && !brandId){
-            products = await Products.findAll({where:{typeId}, limit, offset})
+            products = await Products.findAndCountAll({where:{typeId}, limit, offset})
         }
         if(typeId && brandId){
-            products = await Products.findAll({where:{typeId, brandId}, limit, offset})
+            products = await Products.findAndCountAll({where:{typeId, brandId}, limit, offset})
         }
         return res.json(products)
     }
 
     async getOne(req,res){
-
+        const {id} = req.params
+        const product = await Products.findOne({where: {id}})
     }
 }
 
