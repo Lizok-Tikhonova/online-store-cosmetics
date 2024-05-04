@@ -1,0 +1,45 @@
+
+.review{
+    display: flex;
+    flex-direction: column;
+    padding: 100px 0;
+    column-gap: 52px;
+    row-gap: 70px;
+    align-items: center;
+}
+
+.reviewWrapper{
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 130px;
+    row-gap: 40px;
+    justify-content: center;
+}
+
+.title{
+    font-size: 44px;
+    font-weight: normal;
+}
+
+.link{
+    text-decoration:none;
+    color: white;
+    font-size: 20px;
+    margin-right: 100px;
+    position: relative;
+}
+
+.link::before{
+    content: "";
+    background: #CEA167;;
+    width: 185px;
+    height: 1px;
+    top: 35px;
+    position: absolute;
+}
+
+.wraperLink{
+    display: flex;
+    justify-content: right;
+    min-width: 100%;
+}

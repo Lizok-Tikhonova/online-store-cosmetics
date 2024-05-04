@@ -1,0 +1,16 @@
+.ItemReview{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 17em;
+    text-align: center;
+}
+
+.name{
+    font-size: 32px;
+}
+
+.text{
+    font-size: 20px;
+    color: #B8ACAC;
+}

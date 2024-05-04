@@ -1,0 +1,26 @@
+
+.review{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    text-align: start;
+    max-width: 940px;
+}
+
+.name{
+    font-size: 32px;
+    font-weight: normal;
+}
+
+.text{
+    font-size: 20px;
+    color: #B8ACAC;
+    line-height: 140%;
+}
+
+.hr{
+    margin-top: 30px;
+    border-bottom: 0;
+    border-top: 1px solid #CEA167;
+    max-width: 120%;
+}

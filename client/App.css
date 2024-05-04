@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'Georgia2';
+  src: url('./fonts/Georgia-Bold.ttf');
+  font-weight: bold;
+  font-style: normal;
+} 
+
+@font-face {
+  font-family: 'Georgia2';
+  src: url('./fonts/Georgia.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body, html{
+  /* min-height: 100vh; */
+	font-family: 'Georgia2';
+  color: white;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App{
+	display: flex;
+	flex-direction: column;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 50px;
+  max-width: 1400px;
+}
+
+img{
+  max-width: 100%;
+}
+
+main{
+  margin-top: -1px;
+  margin-bottom: -1px;
+  padding: 100px 0;
+  background-color: #0F0E0E;
+
+  min-height: 100vh;
+}
+
+a{
+  text-decoration: none;
+}
