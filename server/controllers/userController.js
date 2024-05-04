@@ -39,20 +39,37 @@ class UserControler{ //для группировки
     }
 
     async login(req,res){
+        try{
+            const {login, password} = req.body
+            const user = await User.findOne({where:{login}})
+            if(!user){
+                return res.status(400).json({message: 'Пользователь с таким именем не найден'})
+            }
+            let checkPassword = bcrypt.compareSync(password, user.password) // проверка, что пароль совпадает с захэшированным из базы
+            if(!checkPassword){
+                return res.status(400).json({message: 'Указан не верный пароль'})
+            }
+            const token = generateJwt(user.id, user.email, user.role)
+            return res.json({token})
+        } catch(e){
+            console.log(e);
+            res.status(400).json({message: 'Ошибка авторизации'})
+        }
         
     }
 
 
     async check(req, res){
-        try{
-            const {id} = req.query //отдельный параметр после знака вопроса
-            if(!id){
-                throw new Error('Не указан параметр')
-            }
-            res.json(id)
-        } catch(e){
-            return res.status(400).json(e.message)
-        }
+        // try{
+        //     const {id} = req.query //отдельный параметр после знака вопроса
+        //     if(!id){
+        //         throw new Error('Не указан параметр')
+        //     }
+        //     res.json(id)
+        // } catch(e){
+        //     return res.status(400).json(e.message)
+        // }
+        res.json({message:"CHEEEECK"})
     }
 }
 
