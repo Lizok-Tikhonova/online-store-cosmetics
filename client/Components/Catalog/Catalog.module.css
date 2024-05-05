@@ -1,0 +1,7 @@
+.wrapperCatalog{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    column-gap: 20px;
+    row-gap: 80px;
+}

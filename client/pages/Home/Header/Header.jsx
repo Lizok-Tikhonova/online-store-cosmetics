@@ -13,7 +13,7 @@ const Header = () => {
                         <p className={style.paragraf}>С удовольствием поможем создать именно<br/>
                             Ваш неповторимый образ
                         </p>
-                        <Button>записаться</Button>
+                        {/* <Button>записаться</Button> */}
                     </div>
                     <div className={style.down}>
                         <img src={Mouse} className={style.mouse} alt='mouse'></img>

@@ -1,14 +1,14 @@
 import NavBarShop from "../../Components/NavBarShop/NavBarShop";
-import style from "./Basket.module.css"
+import style from "./Product.module.css"
 
 
-const Basket = () => {
+const Product = () => {
     return (
         <>
         <NavBarShop/>
         <main>
             <div className="container">
-                Basket
+                AAAAAAAAAAAAAA
             </div>
         </main>
         </>
@@ -16,4 +16,4 @@ const Basket = () => {
     )
 }
 
-export default Basket;
+export default Product;

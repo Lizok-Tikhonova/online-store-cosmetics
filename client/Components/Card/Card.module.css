@@ -1,0 +1,36 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: max-content;
+    border: 2px solid #7e7e7e;
+    padding: 20px;
+    transition: 0.7s;
+    cursor: pointer;
+    color: white;
+}
+
+.card:hover{
+    border: 2px solid #CEA167;
+}
+
+.info{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    font-size: 18px;
+}
+
+.brand{
+    color: rgb(152, 152, 152);
+}
+
+.name{
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+.price{
+    color: #CEA167;
+    font-size: 22px;
+}
