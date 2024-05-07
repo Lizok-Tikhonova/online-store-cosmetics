@@ -8,14 +8,15 @@ import { observer } from 'mobx-react-lite'
 
 const Brands = observer(() => {
 
-    const [select, setSelect] = useState(-1) // id типа
+    // const [select, setSelect] = useState(-1) // id типа
 
     const {product} = useContext(Context)
 
     return (
         <ul className={style.brands}>
             {product.brands.map(item=>
-                <li key={item.id} className ={(select === item.id) ? style.li_active : style.li} onClick={()=>select === item.id ? setSelect(-1) : setSelect(item.id)}>{item.name}</li>
+                <li key={item.id} className ={(product.selectedBrand === item.id) ? style.li_active : style.li}
+                 onClick={()=>(product.selectedBrand !== item.id) ? product.setSelectedBrand(item.id) : product.setSelectedBrand({})}>{item.name}</li>
             )}
         </ul> 
     )
