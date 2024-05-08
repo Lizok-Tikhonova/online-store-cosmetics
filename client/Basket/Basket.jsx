@@ -15,8 +15,7 @@ const Basket = observer(() => {
     useEffect(()=>{
         getBasket(basketId).then(data=>product.setBasket(data))
     }, [])
-
-    console.log(product.basket[1]);
+    console.log(product.basket)
 
     return (
         <>
