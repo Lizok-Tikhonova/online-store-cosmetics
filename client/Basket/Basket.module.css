@@ -1,0 +1,80 @@
+.basketWrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px;
+}
+
+.title{
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 140%;
+}
+
+.basket{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+    column-gap: 40px;
+    row-gap: 20px;
+}
+
+.products{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding: 30px 30px 45px 30px;
+    background-color: #1A1919;
+    border-radius: 3px;
+}
+
+.payment{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 30px;
+    background-color: #1A1919;
+    border-radius: 3px;
+    font-size: 18px;
+    height: max-content;
+}
+
+.price{
+    display: flex;
+    column-gap: 70px;
+}
+
+.delivery, .itog{
+    display: flex;
+    column-gap: 50px;
+    justify-content: space-between;
+}
+
+.itog{
+    margin-top: 30px;
+}
+
+.itogNum{
+    color: #DD9F50;
+    font-size: 20px;
+}
+
+.btn{
+    padding: 12px 35px;
+    border: solid 1px black;
+    max-width: max-content;
+    margin-left: 30px;
+    margin-bottom: 10px;
+    border: 3px solid #DD9F50;
+    background: transparent;
+    color:white;
+    font-size: 18px;
+    cursor: pointer;
+
+    transition: 0.6s;
+}
+
+.btn:hover{
+    transform: scale(105%);
+    background-color: #DD9F50;
+}

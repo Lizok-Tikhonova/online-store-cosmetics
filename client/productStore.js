@@ -12,6 +12,7 @@ export default class productStore{
         this._selectedBrand = {}
 
         this._basket = []
+        this._itogSum = []
         makeAutoObservable(this) 
     }
 
@@ -39,6 +40,10 @@ export default class productStore{
         this._basket = basket
     }
 
+    setItogSum(itogSum){
+        this._itogSum = itogSum
+    }
+
     get types(){
         return this._types
     }
@@ -61,6 +66,10 @@ export default class productStore{
 
     get basket(){
         return this._basket
+    }
+
+    get itogSum(){
+        return this._itogSum
     }
 
 }

@@ -1,0 +1,64 @@
+.item{
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    column-gap: 100px;
+    flex-wrap: wrap;
+    position: relative;
+}   
+
+.item::before{
+    content: '';
+    position: absolute;
+    height: 1px;
+    width: 100%;
+    background-color: #8c8c8c;
+    top: 120%;
+}
+
+.product{
+    display: flex;
+    gap: 10px;
+}
+
+.img{
+    height: 90px;
+    border-radius: 3px;
+}
+
+.info{
+    display: flex;
+    column-gap: 100px;
+}
+
+.desc{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.price{
+    font-size: 20px;
+    color: #DD9F50;
+}
+
+.name{
+    font-size: 18px;
+}
+
+.count{
+    margin-top: 12px;
+}
+
+.decr_increment{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    font-size: 20px;
+}
+
+.decriment, .increment, .delete{
+    background-color: rgba(245, 222, 179, 0);
+    border: none;
+    cursor: pointer;
+}

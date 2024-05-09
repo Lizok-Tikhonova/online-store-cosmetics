@@ -9,11 +9,11 @@
     cursor: pointer;
     color: white;
 
-    max-width: 250px;
-    max-height: 300px;
+    max-width: 260px;
+    max-height: 450px;
 }
 
-.img{
+img{
     max-width: 250px;
     max-height: 300px;
 }
@@ -39,6 +39,6 @@
 }
 
 .price{
-    color: #CEA167;
+    color: #DD9F50;
     font-size: 22px;
 }
