@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const {User, Basket} = require('../models/models')
+const {User, Basket, Favourit} = require('../models/models')
 
 const generateJwt = (id, login, role) => {
     return jwt.sign(
@@ -9,8 +9,8 @@ const generateJwt = (id, login, role) => {
         {expiresIn: '24h'} //сколько живет токен
     )
 }
-
-
+ 
+   
 class UserControler{ //для группировки
     async registration(req,res){
         try{
@@ -25,9 +25,10 @@ class UserControler{ //для группировки
 
             const hashPassword = await bcrypt.hash(password, 5) // хэшируем пароль, чтобы не хранить в открытиом доступе(5-сколько раз хэшируем)
             const user = await User.create({login, role, password: hashPassword})
-            const basket = await Basket.create({userId: user.id, login, role})
+            const basket = await Basket.create({userId: user.id})
+            const favourite = await Favourit.create({userId: user.id})
 
-            console.log(user);
+            // console.log(user);
             const token = generateJwt(user.id, user.login, user.role)
             return res.json({token})
 
@@ -56,8 +57,8 @@ class UserControler{ //для группировки
             res.status(400).json({message: 'Ошибка авторизации'})
         }
         
-    }
-
+    } 
+ 
     async check(req, res){
         const token = generateJwt(req.user.id, req.user.login, req.user.role)
         res.json({token})

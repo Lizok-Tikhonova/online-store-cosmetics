@@ -14,15 +14,21 @@ const Basket = sequelize.define('basket', {
 })
 
 const BasketList = sequelize.define('basket_list', {
+    count: {type: DataTypes.INTEGER, allowNull: false, validate: {min:1}}
+})
+
+const Favourit = sequelize.define('favourit', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
 })
+
+const FavouritList = sequelize.define('favourit_list', {})
 
 const Products = sequelize.define('products', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, allowNull: false},
     price: {type: DataTypes.INTEGER, allowNull: false},
     img: {type: DataTypes.STRING, allowNull: false},
-    info: {type: DataTypes.STRING},
+    info: {type: DataTypes.TEXT},
 })
 
 const Type = sequelize.define('type', {
@@ -36,11 +42,8 @@ const Brand = sequelize.define('brand', {
 })
 
 
-User.hasOne(Basket)
+User.hasOne(Basket, { onDelete: "cascade"})
 Basket.belongsTo(User)
-
-Basket.hasMany(BasketList)
-BasketList.belongsTo(Basket)
 
 Type.hasMany(Products)
 Products.belongsTo(Type)
@@ -48,8 +51,18 @@ Products.belongsTo(Type)
 Brand.hasMany(Products)
 Products.belongsTo(Brand)
 
-Products.hasMany(BasketList)
-BasketList.belongsTo(Products)
+User.hasOne(Favourit, { onDelete: "cascade"})
+Favourit.belongsTo(User)
+
+
+Basket.belongsToMany(Products, {through:BasketList})
+// BasketList.belongsTo(Basket)
+
+Products.belongsToMany(Basket, {through:BasketList})
+// BasketList.belongsTo(Products)
+
+Basket.belongsToMany(Products, {through:FavouritList})
+Products.belongsToMany(Favourit, {through:FavouritList})
 
 
 module.exports = {
@@ -59,4 +72,6 @@ module.exports = {
     Products,
     Type,
     Brand,
+    Favourit,
+    FavouritList
 }

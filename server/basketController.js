@@ -11,7 +11,7 @@ class BasketController{ //для группировки
             const itemBasket = await BasketList.create({basketId, productId, count:1}) //функция принимает объект, где указываем нужные поля
             return res.json(itemBasket)
         } catch (error) {
-            return res.status(400).json({message: 'Ошибка добавления товара в корзину'})
+            return res.status(400).json({message: 'Товар уже добавлен в корзину'})
         }
         
     } 
@@ -54,7 +54,7 @@ class BasketController{ //для группировки
     }
 
     async clearBasket(req, res){
-        const{basketId} = req.query
+        const{basketId} = req.params
         let product = await BasketList.destroy({where:{basketId}})
         return res.json(product)
     }
