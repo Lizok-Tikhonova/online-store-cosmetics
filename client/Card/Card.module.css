@@ -10,7 +10,7 @@
     color: white;
 
     max-width: 260px;
-    max-height: 450px;
+    max-height: 460px;
 }
 
 img{
@@ -41,4 +41,22 @@ img{
 .price{
     color: #DD9F50;
     font-size: 22px;
+}
+
+.buy{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.buttons{
+    display: flex;
+    gap: 10px;
+    margin-top: -15px;
+}
+
+.buttons button{
+   background-color: #7e7e7e00;
+   border: none;
+   cursor: pointer;
 }
