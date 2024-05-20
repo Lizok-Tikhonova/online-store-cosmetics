@@ -13,6 +13,12 @@ export default class productStore{
 
         this._basket = []
         this._itogSum = []
+
+        this._favourite = []
+
+        this._page = 1
+        this._countProduct = 0
+        this._limit = 3
         makeAutoObservable(this) 
     }
 
@@ -30,10 +36,12 @@ export default class productStore{
 
     setSelectedType(type){
         this._selectedType = type
+        this.setPage(1)
     }
 
     setSelectedBrand(brand){
         this._selectedBrand = brand
+        this.setPage(1)
     }
 
     setBasket(basket){
@@ -42,6 +50,22 @@ export default class productStore{
 
     setItogSum(itogSum){
         this._itogSum = itogSum
+    }
+    
+    setFavourite(favourite){
+        this._favourite = favourite
+    }
+
+    setPage(page){
+        this._page = page
+    }
+
+    setLimit(limit){
+        this._limit = limit
+    }
+
+    setCountProduct(countProduct){
+        this._countProduct = countProduct
     }
 
     get types(){
@@ -70,6 +94,22 @@ export default class productStore{
 
     get itogSum(){
         return this._itogSum
+    }
+
+    get favourite(){
+        return this._favourite
+    }
+
+    get page(){
+        return this._page
+    }
+
+    get limit(){
+        return this._limit
+    }
+
+    get countProduct(){
+        return this._countProduct
     }
 
 }

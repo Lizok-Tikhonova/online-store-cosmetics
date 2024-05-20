@@ -1,0 +1,10 @@
+.item{
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.activeItem{
+    font-size: 25px;
+    cursor: pointer;
+    color: #CEA167;
+}
