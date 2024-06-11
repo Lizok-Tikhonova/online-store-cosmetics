@@ -9,13 +9,13 @@ import plus from '../../img/plus.svg'
 
 const ItemBasket = observer(({item}) => {
     const {user, product} = useContext(Context);
-    const basketId = user.user.id
+    const userId = user.user.id
     const productId = item.id
 
 
     const removeItemtoBasket = async() => {
         try{
-            await axios.delete(`http://localhost:5000/api/basket/${basketId}/${productId}`)
+            await axios.delete(`http://localhost:5000/api/basket/${userId}/${productId}`)
             product.basket.map((element) => {
                 if(element.id == productId){ 
                     console.log(product.itogSum - element.price * element.count);
@@ -30,7 +30,7 @@ const ItemBasket = observer(({item}) => {
 
     const increment = async() => {
         try{
-            await axios.put(`http://localhost:5000/api/basket/plus`,{basketId, productId})
+            await axios.put(`http://localhost:5000/api/basket/plus`,{userId, productId})
             product.setBasket(product.basket.map((element) => {
                 if(element.id == productId){
                     return {...element, count: element.count + 1}
@@ -60,7 +60,7 @@ const ItemBasket = observer(({item}) => {
             if(count <= 1){
                 return
             } else {
-                await axios.put(`http://localhost:5000/api/basket/minus`,{basketId, productId})
+                await axios.put(`http://localhost:5000/api/basket/minus`,{userId, productId})
                 product.setBasket(product.basket.map((element) => {
                     if(element.id == productId){
                         return {...element, count: element.count - 1}
@@ -86,6 +86,7 @@ const ItemBasket = observer(({item}) => {
                 <div className={style.desc}>
                     <p className={style.name}>{item.name}</p>
                     <p className={style.price}>{item.price + '  p.'}</p>
+                    <p className={style.price}>{item.count !=1 && 'Итого: ' + item.price*item.count + '  p.'}</p>
                 </div>
             </div>  
             <div className={style.info}>

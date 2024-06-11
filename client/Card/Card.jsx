@@ -4,49 +4,69 @@ import basket from "../../img/basket.svg"
 import heart from "../../img/heart.svg"
 import heartRed from "../../img/heartRed.svg"
 import axios from "axios";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../../index";
 import { observer } from 'mobx-react-lite'
-import { getFavourite } from "../../http/Product";
-
+import { useNavigate } from "react-router-dom"
+import UpdatePrice from "../Modals/UpdatePrice/UpdatePrice";
 
 
 const Card = observer(({productItem}) => {
 
     const {user, product} = useContext(Context)
-    const basketId = user.user.id
-    const favouritId = user.user.id
+    const userId = user.user.id
+    const navigate = useNavigate()
 
-    console.log(user);
+    const [modalVisible, setModalVisible] = useState(false)
 
-    const addtoBasket = async(basketId,productId) => {
-        try{
-            await axios.post('http://localhost:5000/api/basket',{basketId, productId},
-                {headers: {
-                    authorization: `Bearer ${localStorage.getItem('token')}`
+    const addtoBasket = async(userId,productId) => {
+        try {
+            const response = await axios.post(
+                'http://localhost:5000/api/basket',
+                { userId, productId },
+                {
+                    headers: {
+                        authorization: `Bearer ${localStorage.getItem('token')}`
                     }
-                })
-        } catch(e){
-            alert(e.response.data.message)
+                }
+            );
+            
+            const addedItem = response.data;
+            const existingItem = product.basket.find(item => item.id === addedItem.id);
+    
+            if (existingItem) {
+                existingItem.count += 1;
+                product.setBasket([...product.basket]);
+            } else {
+                addedItem.count = 1;
+                product.setBasket([...product.basket, addedItem]);
+            }
+        } catch (error) {
+            if (error.response) {
+                navigate("/auth");
+            } else {
+                console.error('Ошибка при добавлении товара в корзину:', error);
+            }
         }
-        
-    }
+    };
 
-    const addtoFavourite = async(favouritId,productId) => {
+    const addtoFavourite = async(userId,productId) => {
         try{
-            await axios.post('http://localhost:5000/api/favourite',{favouritId, productId},
+            await axios.post('http://localhost:5000/api/favourite',{userId, productId},
                 {headers: {
                     authorization: `Bearer ${localStorage.getItem('token')}`
                     }
                 })
             product.setFavourite([...product.favourite, {id:productItem.id, img:productItem.img, name:productItem.name, price:productItem.price}])
         } catch(e){
-            await axios.delete(`http://localhost:5000/api/favourite/${favouritId}/${productId}`)
+            if(e.response.data.message === 'Не авторизован'){
+                navigate("/auth")
+                return
+            }
+            await axios.delete(`http://localhost:5000/api/favourite/${userId}/${productId}`)
             product.setFavourite(product.favourite.filter((i)=>i.id !== productId))
-            console.log('ok')
         }
     }
-
 
     const check = ()=> {
         if(user.user.id){
@@ -54,29 +74,37 @@ const Card = observer(({productItem}) => {
         }
     }
 
-    
     return (
-        <div className={style.card}>
-            <Link to={`/product/${productItem.id}`}>
-                <img src={'http://localhost:5000/' + productItem.img} alt="img" className={style.img}/>
-            </Link>
-            <div className={style.info}>
-                <p className={style.name}>{productItem.name}</p>
-                <p className={style.brand}>Ollin</p>
-                <div className={style.buy}>
-                    <p className={style.price}>{productItem.price + ' р.'}</p>
-                    <div className={style.buttons}>
-                        <button onClick={() => addtoFavourite(favouritId, productItem.id)}>
-                            {check()?<img src={heartRed} alt="heart" />:<img src={heart} alt="heart" />}
-                        </button>
-                        <button onClick={() => addtoBasket(basketId, productItem.id)}>
-                            <img src={basket} alt="basket" />
-                        </button>
+        <>
+            <div className={style.card}>
+                <Link to={`/product/${productItem.id}`}>
+                    <img src={'http://localhost:5000/' + productItem.img} alt="img" className={style.img}/>
+                </Link>
+                <div className={style.info}>
+                    <p className={style.name}>{productItem.name}</p>
+                    <p className={style.brand}>{productItem.brands_name}</p>
+                    <div className={style.buy}>
+                        <p className={style.price}>{productItem.price + ' р.'}</p>
+                        {user.user.role !== 'admin' &&
+                        <div className={style.buttons}>
+                            <button onClick={() => addtoFavourite(userId, productItem.id)}>
+                                {check()?<img src={heartRed} alt="heart" />:<img src={heart} alt="heart" />}
+                            </button>
+                            <button onClick={() => addtoBasket(userId, productItem.id)}>
+                                <img src={basket} alt="basket" />
+                            </button>
+                        </div>}
+                        {user.user.role === 'admin' &&
+                            <button onClick={()=>setModalVisible(true)} className={style.btn}>
+                                изменить цену
+                            </button>
+                        }
                     </div>
                 </div>
-                
             </div>
-        </div>
+            <UpdatePrice active={modalVisible} setActive = {setModalVisible} id={productItem.id}/>
+        </>
+        
     )
 })
 

@@ -1,0 +1,19 @@
+
+.brands{
+    display: flex;
+    gap: 40px;
+    left: 0;
+    list-style: none;
+    cursor: pointer;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.li_active{
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.li{
+    font-size: 21px;
+}

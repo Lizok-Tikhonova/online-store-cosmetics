@@ -1,0 +1,35 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.form input{
+    border: 2px solid #DD9F50;
+    padding: 10px 30px;
+    background: transparent;
+    color:white;
+    border-radius: 5px;
+    width: 130%;
+}
+
+.buttons{
+    display: flex;
+    gap: 10px;
+}
+
+.btn{
+    margin-top: 0;
+    padding: 7px 12px;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background: #ad6c16;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.title{
+    font-size: 20px;
+    font-weight: 400;
+}

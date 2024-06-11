@@ -1,0 +1,76 @@
+header{
+    display: flex;
+    flex-direction: column;
+    min-height: 890px;
+    justify-content: center;
+    padding: 180px 0 30px 0;
+    margin-top: -1px;
+
+    background-image: url(./fon.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;   
+}
+
+.wrapperHeader{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 240px;
+
+    color:white;
+}
+
+.bunner{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap:25px;
+    align-items: center;
+}
+
+.title{
+    font-size: 58px;
+    font-weight: normal;
+}
+
+.title span{
+    color:#DD9F50;
+}
+
+.paragraf{
+    font-size: 34px;
+    font-weight: normal;
+    line-height: 120%;
+}
+
+.btn{
+    padding: 12px 50px;
+    border: solid 1px black;
+    border: 3px solid #DD9F50;
+    background: transparent;
+    color:white;
+    font-size: 20px;
+    cursor: pointer;
+
+    transition: 0.6s;
+}
+
+.btn:hover{
+    transform: scale(105%);
+    background-color: #DD9F50;
+}
+
+.down{
+    display: flex;
+    align-items: center;
+    gap:10px;
+}
+
+@media (max-width: 700px){
+    .title{
+        font-size: 45px;
+    }
+    .paragraf{
+        font-size: 20px;
+    }
+} 

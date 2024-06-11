@@ -1,7 +1,6 @@
 .card{
     background: linear-gradient(25deg, rgb(208, 166, 0), rgb(161, 78, 0));
     box-shadow: none;
-    background-color: red;
 }
 
 .form{
@@ -13,13 +12,27 @@
     align-items: center;
 }
 
-.form > input{
+.invalid-input {
+    width: 90%;
+    padding: 7px 20px;
+    border-radius: 5px;
+    background-color: #583e0000;
+    color:white;
+    border: 2px solid rgb(156, 107, 0); 
+}
+
+.form-control{
     width: 90%;
     padding: 7px 20px;
     border: 1px solid grey;
     border-radius: 5px;
     background-color: #583e0000;
     color:white;
+}
+
+.error{
+    font-size: 14px;
+    margin-top: -7px;
 }
 
 .wrapperPayment{

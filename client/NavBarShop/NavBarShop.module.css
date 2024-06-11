@@ -75,6 +75,11 @@ a{
     border-bottom: 0;
 }
 
+.span{
+    color: white;
+    font-size: 16px;
+}
+
 
 .linkShop{
     text-decoration: none;

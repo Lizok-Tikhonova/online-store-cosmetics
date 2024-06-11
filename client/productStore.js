@@ -7,6 +7,7 @@ export default class productStore{
         this._brands = []
 
         this._products = []
+        this._all_products = []
 
         this._selectedType = {}
         this._selectedBrand = {}
@@ -18,7 +19,7 @@ export default class productStore{
 
         this._page = 1
         this._countProduct = 0
-        this._limit = 3
+        this._limit = 8
         makeAutoObservable(this) 
     }
 
@@ -33,6 +34,11 @@ export default class productStore{
     setProduct(products){
         this._products = products
     }
+
+    setProductAll(all_products){
+        this._all_products = all_products
+    }
+
 
     setSelectedType(type){
         this._selectedType = type
@@ -78,6 +84,10 @@ export default class productStore{
     
     get products(){
         return this._products
+    }
+
+    get products_all(){
+        return this._all_products
     }
 
     get selectedType(){

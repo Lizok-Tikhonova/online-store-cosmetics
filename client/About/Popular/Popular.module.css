@@ -1,0 +1,34 @@
+.populate{
+    display: flex;
+    flex-direction: column;
+    gap: 70px;
+    align-items: center;
+}
+
+.populate h2{
+    font-size: 34px;
+    font-weight: 400;
+}
+
+.list{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.btn{
+    padding: 12px 50px;
+    border: solid 1px black;
+    border: 3px solid #DD9F50;
+    background: transparent;
+    color:white;
+    font-size: 20px;
+    cursor: pointer;
+
+    transition: 0.6s;
+}
+
+.btn:hover{
+    transform: scale(105%);
+    background-color: #DD9F50;
+}
